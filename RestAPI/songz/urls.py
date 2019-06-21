@@ -4,5 +4,5 @@ from . views import ListSongzView
 
 
 urlpatterns = [
-    path('songz/', ListSongzView.as_view(), name='songz-all'),
+    path('', ListSongzView.as_view(), name='songz-all'),
 ]

@@ -7,4 +7,4 @@ class Songz(models.Model):
     artist = models.CharField(max_length=15)
 
     def __str__(self):
-        return self.artist
+        return f'{self.artist} - {self.title}'

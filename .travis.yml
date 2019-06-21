@@ -14,7 +14,7 @@ install:
   - pip install -r requirements.txt
 
 before_script:
-  - psql -c "CREATE DATABASE albertdb;" -U postgres    
+  - psql -c "CREATE DATABASE testdb;" -U postgres    
 
 script:
   - python manage.py migrate

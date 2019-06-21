@@ -1,0 +1,21 @@
+language: 
+  - python
+python:
+  - "3.6.7"
+
+services:
+  - postgresql
+  
+env: 
+  -DJANGO=2.2.1 
+
+install:
+
+  - pip install -r requirements.txt
+
+before_script:
+  - psql -c "CREATE DATABASE albertdb;" -U postgres    
+
+script:
+  - python manage.py migrate
+  - python manage.py test songz

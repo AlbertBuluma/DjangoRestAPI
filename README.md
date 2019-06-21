@@ -8,6 +8,7 @@ A sample Django API demo.
 ``` 
 $ git clone https://github.com/AlbertBuluma/DjangoRestAPI.git
 $ pip install -r requirements.txt
+$ python manage.py runserver
 ```
 
 ### Run tests:

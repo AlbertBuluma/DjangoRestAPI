@@ -11,9 +11,9 @@ class BaseViewTest(APITestCase):
     client = APIClient
 
     @staticmethod
-    def createsong(title='', song=''):
-        if title!='' and song!='':
-            Songz.objects.create(title=title, song=song)
+    def createsong(title='', artist=''):
+        if title!='' and artist!='':
+            Songz.objects.create(title=title, artist=artist)
 
     def setUp(self):
         self.createsong('Speeding', 'Omarion')
@@ -25,10 +25,8 @@ class BaseViewTest(APITestCase):
 class GetAllSongzTest(BaseViewTest):
 
     def test_get_all_songz(self):
-        response = self.client.get(
-            reverse('songz-all', kwargs={'version':'v1'}))
-
+        response = self.client.get(reverse('songz-all'))
         expected = Songz.objects.all()
         serialized = SongzSerializer(expected, many=True)
         self.assertEqual(response.data, serialized.data)
-        self.assertEqual(response.status, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
